@@ -9,7 +9,7 @@
 # PSEUDO
 #
 # Brute for with a double nested loop,
-# increase value of a, b, c, checking if they add up t0 1000 first,
+# increase value of a, b, c, checking if they add up to 1000 first,
 # then check if they are a pythagorean triple
 
 def pythagorean_triple():
