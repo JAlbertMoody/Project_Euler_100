@@ -5,40 +5,28 @@
 
 # PSEUDO
 #
-# Find all the primes below 2_000_000 and add them to a list
-# sum the list and return the answer
-# Lots of primes problems in this set.
+# Use the "Sieve of Eratosthenes" algorithm to find primes up to the limit.
 
-def sum_primes():
-    primes = [2]
-    num = 2
-    sum = 2
 
-    # find all the primes below 2 million
-    while num < 2000000:
-        num += 1
-        # assume True unless proven otherwise
-        isPrime = True
-        # test if any primes can divide num
-        for prime in primes:
-            if num % prime == 0:
-                # Not a prime, set to false
-                isPrime = False
-                break
-            else:
-                continue
-        if isPrime:
-            # add to primes list
-            primes.append(num)
-            sum += num
-            # print(primes)
+def SOE_primes(limit):
+    # initiate is prime as a list of 'True" bools, with a length of 'limit'
+    is_prime = [True] * (limit)
+    # set index 0 and 1 to False as they are not primes
+    is_prime[0], is_prime[1] = False, False
 
-    # print(primes)
-    # return the summed list
-    return sum
+    # only check to sqrt of limit, as that's the largest possible factor
+    for num in range(2, int(limit**0.5)):
+        if is_prime[num]:
+            # mark all multiples of the known prime as not prime
+            # so if num = 2, 4, 6, 8, ... will be marked as not prime and skipped next time.
+            for multiple in range(num*num, limit, num):
+                # mark the index at that multiple as not prime.
+                is_prime[multiple] = False
 
-print(sum_primes())
+    prime_sum = sum(num for num, prime in enumerate(is_prime) if prime)
+    # print(is_prime)
+    return prime_sum
 
-# Very slow to execute, will consider using 'Sieve of Eratosthenes'
-
+limit = 2_000_000
+print(SOE_primes(limit))
 
