@@ -6,7 +6,7 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million,
 # find the sum of the even-valued terms.
 
-# PSUEDO
+# PSEUDO
 #
 # create a loop that generates fibonacci nums
 # as it iterates, check if the value is even w/ modulo
