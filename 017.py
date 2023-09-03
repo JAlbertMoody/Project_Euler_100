@@ -9,8 +9,6 @@
 # Iterate from 1 to 1000 inclusive, and store a variable called letter_count
 # for each number, match it against a dictionary to get the length of the string.
 # call the function recursively until the num is handled.
-#
-#
 
 # Dictionary mapping numbers to their word representations
 letters_in_num = {
